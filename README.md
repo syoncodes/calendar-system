@@ -5,7 +5,8 @@ interactive glassmorphic web calendar and a subscribable `.ics` feed that keeps 
 Calendar in sync automatically.
 
 **Live site:** `https://syoncodes.github.io/calendar-system/`
-**Calendar feed:** `https://syoncodes.github.io/calendar-system/calendar.ics`
+**Calendar feeds:** one per category under `https://syoncodes.github.io/calendar-system/feeds/`
+(so each gets its own color in Google), plus `.../calendar.ics` with everything combined.
 
 ## How it works
 
@@ -50,7 +51,20 @@ rules to respect (sleep, gym windows, startup hours, crunch weeks).
    The included workflow (`.github/workflows/pages.yml`) rebuilds from YAML and deploys
    `site/` on every push to `main` — so even edits made in the GitHub web UI publish.
 3. **Subscribe Google Calendar:** Google Calendar (desktop web) → **Other calendars → + →
-   From URL** → paste `https://syoncodes.github.io/calendar-system/calendar.ics` → Add.
+   From URL** → add each per-category feed, then pick a color for each in the sidebar
+   (Google colors whole calendars, not individual events — that's why they're split):
+
+   ```
+   https://syoncodes.github.io/calendar-system/feeds/classes.ics
+   https://syoncodes.github.io/calendar-system/feeds/deadlines.ics
+   https://syoncodes.github.io/calendar-system/feeds/study.ics
+   https://syoncodes.github.io/calendar-system/feeds/startup.ics
+   https://syoncodes.github.io/calendar-system/feeds/research.ics
+   https://syoncodes.github.io/calendar-system/feeds/gym.ics
+   https://syoncodes.github.io/calendar-system/feeds/personal.ics
+   ```
+
+   (Or subscribe to just `.../calendar.ics` for everything in one color.)
 
 ## Notes
 

@@ -11,10 +11,11 @@ never have to touch generated files.
 data/schedule.yaml   ← the repeating weekly template (classes, gym, study, startup, research)
 data/events.yaml     ← dated one-offs (exams, HW due dates, breaks, flights) + academic config
 data/tooltips.yaml   ← rich hover details per block title (professors, rooms, grading, tips)
-scripts/build.py     ← compiles YAML → site/data.js + site/calendar.ics
+scripts/build.py     ← compiles YAML → site/data.js + site/calendar.ics + site/feeds/*.ics
 site/index.html      ← interactive glass calendar (reads data.js; DO NOT hand-edit its data)
-site/calendar.ics    ← GENERATED subscribable feed        } never edit these two directly —
-site/data.js         ← GENERATED UI data                  } they are overwritten on build
+site/calendar.ics    ← GENERATED combined feed            } never edit these directly —
+site/feeds/*.ics     ← GENERATED per-category feeds       } they are overwritten
+site/data.js         ← GENERATED UI data                  } on every build
 ```
 
 GitHub Pages serves `site/`. Google Calendar subscribes to `.../calendar.ics`, so every

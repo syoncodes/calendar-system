@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
 build.py — compiles data/*.yaml into:
-  site/data.js       (powers the interactive glass calendar)
-  site/calendar.ics  (subscribable feed for Google Calendar)
+  site/data.js        (powers the interactive glass calendar)
+  site/calendar.ics   (combined subscribable feed — everything)
+  site/feeds/*.ics    (one feed per category, so Google can color each separately)
 
 Run after ANY edit to data/:  python scripts/build.py
 Exits non-zero on validation errors.
@@ -18,6 +19,19 @@ DAY_ORDER = ["sunday","monday","tuesday","wednesday","thursday","friday","saturd
 ICS_DAY = {0:"SU",1:"MO",2:"TU",3:"WE",4:"TH",5:"FR",6:"SA"}
 VALID_CATS = {"class","study","research","startup","gym","personal","transit"}
 VALID_KINDS = {"exam","hw","brk","fly","adm","mile"}
+
+# Google colors whole calendars, not events — so each category also gets its own feed
+FEED_NAMES = {
+    "classes":   "Fall26 — Classes",
+    "deadlines": "Fall26 — Exams & Deadlines",
+    "study":     "Fall26 — Study",
+    "startup":   "Fall26 — Startup",
+    "research":  "Fall26 — Research",
+    "gym":       "Fall26 — Gym",
+    "personal":  "Fall26 — Personal",
+}
+CAT_FEED = {"class":"classes","study":"study","startup":"startup",
+            "research":"research","gym":"gym","personal":"personal"}
 
 def load(name):
     with open(DATA / name) as f:
@@ -161,14 +175,13 @@ def build_ics(schedule, events):
     no_class = set(cfg["no_class_dates"])
     no_day = set(cfg["no_daytime_dates"])
 
-    L = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//CalendarSystem//Fall2026//EN",
-         "CALSCALE:GREGORIAN","X-WR-CALNAME:Fall 2026 System",f"X-WR-TIMEZONE:{tz}",
-         "BEGIN:VTIMEZONE",f"TZID:{tz}",
-         "BEGIN:DAYLIGHT","TZOFFSETFROM:-0500","TZOFFSETTO:-0400","TZNAME:EDT",
-         "DTSTART:19700308T020000","RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU","END:DAYLIGHT",
-         "BEGIN:STANDARD","TZOFFSETFROM:-0400","TZOFFSETTO:-0500","TZNAME:EST",
-         "DTSTART:19701101T020000","RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU","END:STANDARD",
-         "END:VTIMEZONE"]
+    VTZ = ["BEGIN:VTIMEZONE",f"TZID:{tz}",
+           "BEGIN:DAYLIGHT","TZOFFSETFROM:-0500","TZOFFSETTO:-0400","TZNAME:EDT",
+           "DTSTART:19700308T020000","RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU","END:DAYLIGHT",
+           "BEGIN:STANDARD","TZOFFSETFROM:-0400","TZOFFSETTO:-0500","TZNAME:EST",
+           "DTSTART:19701101T020000","RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU","END:STANDARD",
+           "END:VTIMEZONE"]
+    chunks = []   # (feed_key, [VEVENT lines]) — every event lands in the combined feed + its category feed
 
     uid_n = 0
     def uid():
@@ -190,40 +203,51 @@ def build_ics(schedule, events):
             eh, em = map(int, b["end"].split(":"))
             dstart = f"{start_date:%Y%m%d}T{sh:02d}{sm:02d}00"
             dend   = f"{start_date:%Y%m%d}T{eh:02d}{em:02d}00"
-            L += ["BEGIN:VEVENT", f"UID:{uid()}", dtstamp,
-                  f"DTSTART;TZID={tz}:{dstart}", f"DTEND;TZID={tz}:{dend}",
-                  f"RRULE:FREQ=WEEKLY;BYDAY={ICS_DAY[i]};UNTIL={until:%Y%m%d}T045959Z"]
+            V = ["BEGIN:VEVENT", f"UID:{uid()}", dtstamp,
+                 f"DTSTART;TZID={tz}:{dstart}", f"DTEND;TZID={tz}:{dend}",
+                 f"RRULE:FREQ=WEEKLY;BYDAY={ICS_DAY[i]};UNTIL={until:%Y%m%d}T045959Z"]
             if is_class:
                 cancelled = [d for d in no_class if d.isoweekday() % 7 == i]
                 if hm_to_float(b["start"]) < 17 and not b.get("evening"):
                     cancelled += [d for d in no_day if d.isoweekday() % 7 == i]
                 for d in sorted(cancelled):
-                    L.append(f"EXDATE;TZID={tz}:{d:%Y%m%d}T{sh:02d}{sm:02d}00")
+                    V.append(f"EXDATE;TZID={tz}:{d:%Y%m%d}T{sh:02d}{sm:02d}00")
             summary = b["title"] + (f" - {b['meta']}" if b.get("meta") else "")
-            L.append(f"SUMMARY:{ics_escape(summary)}")
-            L.append("END:VEVENT")
+            V.append(f"SUMMARY:{ics_escape(summary)}")
+            V.append("END:VEVENT")
+            chunks.append((CAT_FEED[b["cat"]], V))
 
     # one-off events
     for ev in events["events"]:
-        L += ["BEGIN:VEVENT", f"UID:{uid()}", dtstamp]
+        V = ["BEGIN:VEVENT", f"UID:{uid()}", dtstamp]
         if ev.get("time"):
             h, m = map(int, str(ev["time"]).split(":"))
             dur = int(ev.get("duration_min", 60))
             st = dt.datetime.combine(ev["date"], dt.time(h, m))
             en = st + dt.timedelta(minutes=dur)
-            L += [f"DTSTART;TZID={tz}:{st:%Y%m%dT%H%M%S}", f"DTEND;TZID={tz}:{en:%Y%m%dT%H%M%S}"]
+            V += [f"DTSTART;TZID={tz}:{st:%Y%m%dT%H%M%S}", f"DTEND;TZID={tz}:{en:%Y%m%dT%H%M%S}"]
         else:
-            L.append(f"DTSTART;VALUE=DATE:{ev['date']:%Y%m%d}")
+            V.append(f"DTSTART;VALUE=DATE:{ev['date']:%Y%m%d}")
         prefix = {"exam":"[EXAM] ","hw":"[HW] ","brk":"[BREAK] ","fly":"[FLIGHT] ","adm":"[DEADLINE] ","mile":"[KEY] "}[ev["kind"]]
-        L.append(f"SUMMARY:{ics_escape(prefix + ev['title'])}")
+        V.append(f"SUMMARY:{ics_escape(prefix + ev['title'])}")
         if ev.get("location"):
-            L.append(f"LOCATION:{ics_escape(ev['location'])}")
-        L.append("END:VEVENT")
+            V.append(f"LOCATION:{ics_escape(ev['location'])}")
+        V.append("END:VEVENT")
+        chunks.append(("deadlines", V))
 
-    L.append("END:VCALENDAR")
-    (SITE / "calendar.ics").write_text("\r\n".join(L) + "\r\n")
-    n = sum(1 for x in L if x == "BEGIN:VEVENT")
-    print(f"ok  site/calendar.ics  ({n} events)")
+    def write_feed(path, cal_name, evs):
+        head = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//CalendarSystem//Fall2026//EN",
+                "CALSCALE:GREGORIAN",f"X-WR-CALNAME:{cal_name}",f"X-WR-TIMEZONE:{tz}"] + VTZ
+        lines = head + [ln for v in evs for ln in v] + ["END:VCALENDAR"]
+        path.write_text("\r\n".join(lines) + "\r\n")
+        return len(evs)
+
+    n = write_feed(SITE / "calendar.ics", "Fall 2026 System", [v for _, v in chunks])
+    print(f"ok  site/calendar.ics  ({n} events, all categories)")
+    (SITE / "feeds").mkdir(exist_ok=True)
+    for key, cal_name in FEED_NAMES.items():
+        n = write_feed(SITE / "feeds" / f"{key}.ics", cal_name, [v for k, v in chunks if k == key])
+        print(f"ok  site/feeds/{key}.ics  ({n} events)")
 
 def main():
     schedule = load("schedule.yaml")
