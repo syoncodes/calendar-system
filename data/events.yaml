@@ -1,0 +1,80 @@
+# ============================================================
+# EVENTS + ACADEMIC CALENDAR CONFIG
+# This is where new assignments, exams, meetings, and date changes go.
+# kinds: exam | hw | brk (break/holiday) | fly (travel) | adm (admin deadline) | mile (milestone)
+# Timed events: add time ("HH:MM"), duration_min, location.
+# Dateless recurring rules live in schedule.yaml, not here.
+# After editing, run:  python scripts/build.py
+# ============================================================
+
+config:
+  timezone: America/New_York
+  semester_start: 2026-08-24        # classes only render/emit inside this window
+  last_day_of_classes: 2026-12-04
+  recurring_until: 2026-12-19       # gym/study/startup blocks keep going until here
+  # class meetings are cancelled on these dates:
+  no_class_dates: [2026-09-07, 2026-10-12, 2026-10-13, 2026-10-14, 2026-10-15, 2026-10-16, 2026-11-25, 2026-11-26, 2026-11-27]
+  # daytime classes cancelled, evening (>=5pm) classes still meet:
+  no_daytime_dates: [2026-11-03]
+  # high-pressure exam weeks (rendered with red tint; startup at check-in level):
+  crunch_dates: [2026-09-21, 2026-09-22, 2026-09-23, 2026-09-24, 2026-09-25,
+                 2026-10-26, 2026-10-27, 2026-10-28, 2026-10-29, 2026-10-30]
+
+events:
+  - {date: 2026-08-24, kind: mile, title: "First Day of Classes"}
+
+  # ---- 15-151 homework (20% of grade, LaTeX +1pt) ----
+  - {date: 2026-09-02, kind: hw, title: "151 HW 1 due"}
+  - {date: 2026-09-09, kind: hw, title: "151 HW 2 due"}
+  - {date: 2026-09-16, kind: hw, title: "151 HW 3 due"}
+  - {date: 2026-09-30, kind: hw, title: "151 HW 4 due"}
+  - {date: 2026-10-08, kind: hw, title: "151 HW 5 due"}
+  - {date: 2026-10-21, kind: hw, title: "151 HW 6 due"}
+  - {date: 2026-11-04, kind: hw, title: "151 HW 7 due"}
+  - {date: 2026-11-11, kind: hw, title: "151 HW 8 due"}
+  - {date: 2026-11-24, kind: hw, title: "151 HW 9 due"}
+  - {date: 2026-12-03, kind: hw, title: "151 HW 10 due"}
+
+  # ---- exams (timed) ----
+  - {date: 2026-09-21, kind: exam, title: "15-151 MIDTERM 1", time: "13:00", duration_min: 50, location: "GHC 4401"}
+  - {date: 2026-09-25, kind: exam, title: "21-241 EXAM 1", time: "09:00", duration_min: 50, location: "HOA 160"}
+  - {date: 2026-10-26, kind: exam, title: "15-151 MIDTERM 2", time: "13:00", duration_min: 50, location: "GHC 4401"}
+  - {date: 2026-10-30, kind: exam, title: "21-241 EXAM 2", time: "09:00", duration_min: 50, location: "HOA 160"}
+  - {date: 2026-11-16, kind: exam, title: "15-151 MIDTERM 3", time: "13:00", duration_min: 50, location: "GHC 4401"}
+
+  # ---- registrar / admin ----
+  - {date: 2026-09-04, kind: adm, title: "Add/drop deadline"}
+  - {date: 2026-10-05, kind: adm, title: "Drop deadline — checkpoint"}
+  - {date: 2026-10-19, kind: mile, title: "Mini-2 starts · mid-sem grades"}
+  - {date: 2026-11-09, kind: adm, title: "Pass/no-pass & W deadline"}
+  - {date: 2026-11-20, kind: mile, title: "Spring registration opens"}
+  - {date: 2026-12-04, kind: mile, title: "Last Day of Classes · 241 project due"}
+
+  # ---- breaks / holidays ----
+  - {date: 2026-09-07, kind: brk, title: "Labor Day — no classes"}
+  - {date: 2026-10-12, kind: brk, title: "Fall Break — Austin ✈"}
+  - {date: 2026-10-13, kind: brk, title: "Fall Break"}
+  - {date: 2026-10-14, kind: brk, title: "Fall Break"}
+  - {date: 2026-10-15, kind: brk, title: "Fall Break"}
+  - {date: 2026-10-16, kind: brk, title: "Fall Break"}
+  - {date: 2026-11-03, kind: brk, title: "Democracy Day — 122 evening meets"}
+  - {date: 2026-11-25, kind: brk, title: "Thanksgiving Break"}
+  - {date: 2026-11-26, kind: brk, title: "Thanksgiving"}
+  - {date: 2026-11-27, kind: brk, title: "Thanksgiving Break"}
+
+  # ---- finals ----
+  - {date: 2026-12-07, kind: exam, title: "Finals"}
+  - {date: 2026-12-08, kind: exam, title: "Finals"}
+  - {date: 2026-12-09, kind: brk, title: "Reading Day"}
+  - {date: 2026-12-10, kind: exam, title: "Finals"}
+  - {date: 2026-12-11, kind: exam, title: "Finals"}
+  - {date: 2026-12-12, kind: brk, title: "Reading Day"}
+  - {date: 2026-12-14, kind: exam, title: "Finals"}
+  - {date: 2026-12-15, kind: exam, title: "Make-up finals"}
+
+  # ---- travel ----
+  - {date: 2026-10-18, kind: fly, title: "✈ AUS → PIT (CND8XD)"}
+  - {date: 2026-12-17, kind: fly, title: "✈ PIT → AUS — winter break (BXLW7H)"}
+  - {date: 2027-01-16, kind: fly, title: "✈ AUS → PIT (BXLW7H)"}
+  - {date: 2027-01-18, kind: brk, title: "MLK Day — closed"}
+  - {date: 2027-01-19, kind: mile, title: "Spring classes begin"}

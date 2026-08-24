@@ -1,0 +1,41 @@
+# ============================================================
+# GUARDRAILS — hard constraints the build ENFORCES.
+# If a schedule edit violates these, `python scripts/build.py` FAILS
+# and nothing gets published. That is the point.
+#
+# Do not weaken these to make a build pass. Changing this file requires
+# the user explicitly saying they want the rule itself changed.
+# ============================================================
+
+sleep:
+  weekday_lights_out: "23:15"     # Mon–Fri: nothing may end after this
+  saturday_lights_out: "23:45"
+  sunday_lights_out:  "22:45"     # early — Monday is a 6:00 wake
+  weekday_wake: "06:00"           # Mon–Fri: nothing may start before this
+  weekend_wake_earliest: "08:30"  # sleep-bank days
+
+gym:
+  required_daily: true            # a gym block must exist every single day
+  opens:
+    weekday: "06:30"              # Cohon UC weekday opening — no gym before this
+    weekend: "09:00"              # weekend opening
+  short_days: [tuesday, thursday] # 8 AM recitation days — compressed sessions
+  short_max_minutes: 75           # hard ceiling on Tue/Thu (6:30 open → 7:40 out)
+  full_min_minutes: 110           # M/W/F + weekends must be real full sessions
+  post_gym_class_buffer_minutes: 20  # shower + walk before any class after gym
+
+protected:
+  daily_family_contact: true      # every day needs a personal block mentioning "family"
+
+# Weekly hour bands — WARNINGS (not fatal) when totals drift outside.
+# Keeps the load honest without blocking urgent edits.
+weekly_hours:
+  startup:  {min: 18, max: 24}    # ~21 committed
+  research: {min: 5,  max: 10}    # ~8 committed
+  study:    {min: 18, max: 30}
+  gym:      {min: 10, max: 15}
+
+# Advisory (enforced by CLAUDE.md judgment, not the build):
+# - Crunch weeks (config.crunch_dates): startup drops to check-ins; research pauses with
+#   advance notice to the PI. Never backfill the freed time with new commitments.
+# - Conflict priority: sleep > exams > classes > everything else.
