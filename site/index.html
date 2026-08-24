@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#232455">
 <title>Fall 2026 — The System</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -16,10 +17,14 @@
   --class:#FF5C7A; --study:#5B9BFF; --research:#B07CFF; --startup:#43E0C0; --gym:#54E88F; --personal:rgba(255,255,255,.55); --transit:rgba(255,255,255,.3);
   --exam:#FF5C7A; --hw:#5B9BFF; --brk:#54E88F; --fly:#43D6F0; --adm:rgba(255,255,255,.4); --mile:#FFC24D;
 }
-*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{background:var(--bg1)}
-body{font-family:'Arvo',Georgia,serif;color:var(--txt);padding:28px 16px 70px;min-height:100vh;position:relative;overflow-x:hidden;
-  background:linear-gradient(135deg,#2B2D5B 0%,#3A2E6E 38%,#22336B 72%,#182A5C 100%);background-attachment:fixed}
+body{font-family:'Arvo',Georgia,serif;color:var(--txt);padding:28px 16px 70px;min-height:100vh;min-height:100svh;position:relative;overflow-x:hidden}
+/* gradient lives on a fixed pseudo-element — background-attachment:fixed is broken on iOS Safari.
+   body must stay background-less or it paints over the z-index:-1 layer (html carries the fallback) */
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(135deg,#2B2D5B 0%,#3A2E6E 38%,#22336B 72%,#182A5C 100%)}
+/* iOS Safari only synthesizes click events on "clickable" elements — this makes tap-away dismissal work everywhere */
+@media(hover:none){body{cursor:pointer}}
 
 /* ---- ambient ribbons & glow ---- */
 .bgfx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
@@ -34,9 +39,13 @@ body{font-family:'Arvo',Georgia,serif;color:var(--txt);padding:28px 16px 70px;mi
 .eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);font-weight:500}
 h1{font-weight:700;font-size:clamp(26px,4.4vw,42px);letter-spacing:.01em;margin:6px 0 4px;text-shadow:0 2px 24px rgba(67,214,240,.35)}
 .sub{font-size:13px;color:var(--mut);font-weight:400}
-.countdown{display:inline-flex;align-items:center;gap:7px;margin-top:14px;border-radius:999px;padding:8px 18px;font-size:12.5px;
+.chiprow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px}
+.countdown{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:8px 18px;font-size:12.5px;
   background:linear-gradient(120deg,rgba(74,125,255,.85),rgba(67,214,240,.85));box-shadow:0 6px 24px rgba(74,125,255,.4);font-weight:400}
 .countdown b{font-weight:700}
+#nowchip{background:linear-gradient(120deg,rgba(67,224,192,.9),rgba(84,232,143,.82));box-shadow:0 6px 24px rgba(67,224,192,.35);color:#0A2A22}
+#nowchip b{color:#06201a}
+#nowchip:empty{display:none}
 
 /* ---- glass primitives ---- */
 .glass{background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
@@ -60,16 +69,25 @@ h1{font-weight:700;font-size:clamp(26px,4.4vw,42px);letter-spacing:.01em;margin:
 .wkwrap{overflow:hidden}
 .wkscroll{overflow-x:auto}
 .wkgrid{display:grid;grid-template-columns:52px repeat(7,minmax(146px,1fr));min-width:1100px}
-.corner{border-bottom:1px solid var(--stroke)}
+.corner{border-bottom:1px solid var(--stroke);position:sticky;left:0;z-index:5;background:rgba(32,33,76,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .dh{border-bottom:1px solid var(--stroke);border-left:1px solid rgba(255,255,255,.09);padding:12px 10px 10px}
 .dh .d{font-weight:600;font-size:13.5px}
 .dh .th{font-size:9.5px;color:var(--faint);margin-top:1px;font-weight:400;letter-spacing:.02em}
-.ruler{position:relative}
+.dh.today{box-shadow:inset 0 -2px 0 var(--cyan)}
+.dh.today .d{color:var(--cyan);text-shadow:0 0 12px rgba(67,214,240,.6)}
+.ruler{position:sticky;left:0;z-index:4;background:rgba(32,33,76,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .hl{position:absolute;right:8px;transform:translateY(-6px);font-size:9.5px;color:var(--faint);font-weight:400}
 .col{position:relative;border-left:1px solid rgba(255,255,255,.09)}
 .gl{position:absolute;left:0;right:0;border-top:1px solid rgba(255,255,255,.07)}
 .sleep{position:absolute;left:0;right:0;border-top:2px dashed rgba(255,92,122,.6)}
-.blk{position:absolute;left:4px;right:4px;border-radius:10px;padding:5px 8px;overflow:hidden;line-height:1.18;
+.nowline{position:absolute;left:0;right:0;z-index:3;border-top:2px solid var(--cyan);box-shadow:0 0 10px rgba(67,214,240,.8);pointer-events:none}
+.nowline::before{content:"";position:absolute;left:-1px;top:-4px;width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.blk.now{border-color:rgba(67,214,240,.9);animation:nowpulse 2.6s ease-in-out infinite}
+@keyframes nowpulse{
+  0%,100%{box-shadow:0 0 0 1.5px rgba(67,214,240,.75),0 0 20px rgba(67,214,240,.35)}
+  50%{box-shadow:0 0 0 1.5px rgba(67,214,240,.4),0 0 10px rgba(67,214,240,.12)}
+}
+.blk{position:absolute;left:4px;right:4px;border-radius:10px;padding:5px 8px;overflow:hidden;line-height:1.18;cursor:pointer;
   backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.14);border-top-color:rgba(255,255,255,.3);
   box-shadow:0 4px 14px rgba(10,12,40,.25)}
 .blk .t{font-weight:600;font-size:10.5px}
@@ -125,19 +143,42 @@ h1{font-weight:700;font-size:clamp(26px,4.4vw,42px);letter-spacing:.01em;margin:
 
 /* ---- semester ---- */
 .sem{display:flex;flex-direction:column;gap:9px}
-.wk{display:grid;grid-template-columns:112px 1fr;gap:12px;padding:13px 16px;align-items:center;border-radius:16px;
+.wk{display:grid;grid-template-columns:112px 1fr;gap:12px;padding:13px 16px;align-items:center;border-radius:16px;cursor:pointer;
   background:rgba(255,255,255,.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);border-top-color:rgba(255,255,255,.28);transition:background .16s}
 .wk:hover{background:rgba(255,255,255,.11)}
 .wk.crunchw{background:rgba(255,92,122,.13);border-color:rgba(255,92,122,.4)}
 .wk.brkw{background:rgba(84,232,143,.11);border-color:rgba(84,232,143,.35)}
 .wk.finalw{background:rgba(67,214,240,.1);border-color:rgba(67,214,240,.4)}
+.wk.thisw{border-color:rgba(67,214,240,.6);box-shadow:0 0 18px rgba(67,214,240,.22)}
 .wk .wlab .n{font-weight:700;font-size:13px}
 .wk .wlab .d{font-size:10px;color:var(--faint);font-weight:400}
 .badges{display:flex;flex-wrap:wrap;gap:6px}
 .bd{font-size:10.5px;font-weight:600;border-radius:8px;padding:4px 10px;color:#101433;box-shadow:0 3px 10px rgba(10,12,40,.25)}
 .bd.w{color:#fff}
 .bd.quiet{background:transparent;color:var(--mut);border:1px solid var(--stroke);font-weight:400;box-shadow:none}
-@media(max-width:640px){body{padding:18px 8px 50px}.tab{padding:8px 14px;font-size:12px}.cell{min-height:66px}.pill{display:none}.drawer{top:8px;right:8px;bottom:8px}}
+/* ---- mobile ---- */
+@media(max-width:640px){
+  body{padding:16px 10px 40px}
+  .tabs{width:100%}
+  .tab{flex:1;padding:9px 0;font-size:12.5px;text-align:center}
+  .legend{gap:5px}.lg{padding:4px 10px;font-size:10px}
+  /* week: snap-scroll one day at a time, time ruler stays pinned left.
+     width:max-content makes the grid box span its tracks — sticky items clamp to the grid box */
+  .wkgrid{min-width:0;width:max-content;grid-template-columns:44px repeat(7,min(80vw,340px))}
+  .wkscroll{scroll-snap-type:x mandatory;scroll-padding-left:44px;-webkit-overflow-scrolling:touch}
+  .dh,.col{scroll-snap-align:start}
+  .blk{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .blob{filter:blur(46px)}
+  .mgrid{gap:4px}
+  .cell{min-height:58px;padding:6px;border-radius:10px}
+  .pill{display:none}
+  .mtitle{font-size:18px}.nbtn{width:34px;height:34px}
+  .wk{grid-template-columns:1fr;gap:7px;padding:12px 13px}
+  /* day panel becomes a bottom sheet */
+  .drawer{top:auto;left:10px;right:10px;bottom:10px;width:auto;max-height:76vh;
+    transform:translateY(calc(100% + 90px));padding:20px 18px calc(20px + env(safe-area-inset-bottom,0px))}
+  .drawer.on{transform:none}
+}
 
 /* ---- floating tooltip ---- */
 #tip{position:fixed;z-index:80;max-width:320px;pointer-events:none;opacity:0;transform:translateY(6px);transition:opacity .14s, transform .14s;
@@ -157,7 +198,17 @@ h1{font-weight:700;font-size:clamp(26px,4.4vw,42px);letter-spacing:.01em;margin:
 #tip .tp-ev .tv{font-size:11px;font-weight:500}
 #tip .tp-ev .tm2{font-size:9.5px;color:var(--faint);font-weight:400;margin-left:auto;padding-left:10px;white-space:nowrap}
 #tip .tp-pill{display:inline-block;font-size:9.5px;font-weight:600;border-radius:6px;padding:2px 8px;margin:2px 4px 2px 0;color:#101433}
-@media(hover:none){#tip{display:none}}
+/* pinned state: click/tap a block to keep the card up; click away, ✕, or Esc dismisses */
+#tipx{display:none;position:absolute;top:9px;right:9px;width:26px;height:26px;border-radius:8px;border:1px solid var(--stroke);
+  background:rgba(255,255,255,.1);color:#fff;font-size:11px;cursor:pointer;font-family:inherit;line-height:1}
+#tip.pinned{pointer-events:auto;user-select:text;-webkit-user-select:text;max-height:64vh;overflow-y:auto;overscroll-behavior:contain}
+/* sticky float keeps the ✕ visible while a long card scrolls */
+#tip.pinned #tipx{display:block;position:sticky;top:0;right:auto;float:right;margin:-2px -4px 6px 8px}
+#tip.pinned .tp-title{padding-right:30px}
+@media(max-width:640px){
+  #tip.pinned{left:10px !important;right:10px;top:auto !important;bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    max-width:none;max-height:58vh;border-radius:18px;box-shadow:0 -10px 50px rgba(5,8,30,.7)}
+}
 </style>
 </head>
 <body>
@@ -181,7 +232,7 @@ h1{font-weight:700;font-size:clamp(26px,4.4vw,42px);letter-spacing:.01em;margin:
   <div class="eyebrow">CMU · Fall 2026</div>
   <h1>The System</h1>
   <div class="sub">Five courses · 21 hr startup · ~8 hr research · gym every day · lights out 11:15</div>
-  <div class="countdown" id="cd"></div>
+  <div class="chiprow"><div class="countdown" id="cd"></div><div class="countdown" id="nowchip"></div></div>
 
   <div class="tabs">
     <button class="tab on" data-v="week">Week</button>
@@ -221,7 +272,7 @@ const NOW=new Date(); const REF = NOW>TODAY?NOW:TODAY;
 const colors={class:'#FF5C7A',study:'#5B9BFF',research:'#B07CFF',startup:'#43E0C0',gym:'#54E88F',personal:'rgba(255,255,255,.55)',transit:'rgba(255,255,255,.3)'};
 const catNames={class:'Classes',study:'Study',research:'Research',startup:'Startup',gym:'Gym',personal:'Personal'};
 const T=(h,m=0)=>h+m/60;
-const fmtT=x=>{let h=Math.floor(x),m=Math.round((x-h)*60);const ap=h>=12?'PM':'AM';h=((h+11)%12)+1;return h+(m?':'+String(m).padStart(2,'0'):'')+' '+ap;};
+const fmtT=x=>{let h=Math.floor(x),m=Math.round((x-h)*60);const ap=h>=12?'PM':'AM';h=((h+11)%12)+1;return h+':'+String(m).padStart(2,'0')+' '+ap;};
 
 const week=window.CAL.week;
 
@@ -288,6 +339,39 @@ document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
     }
     g.appendChild(c);
   });
+  // on phones the week scrolls one day per swipe — land on today's column
+  requestAnimationFrame(()=>{
+    const sc=document.querySelector('.wkscroll');
+    if(sc.scrollWidth<=sc.clientWidth+8)return;
+    const cols=g.querySelectorAll('.col'),ti=order.indexOf(REF.getDay());
+    if(ti>0&&cols[ti])sc.scrollLeft=cols[ti].offsetLeft-cols[0].offsetLeft;
+  });
+
+  /* live "now" awareness: today's header lit, a time line in today's column,
+     the active block pulsing, and a Now/Up-next chip in the header */
+  const dhs=g.querySelectorAll('.dh'),cols=g.querySelectorAll('.col');
+  const nowline=document.createElement('div');nowline.className='nowline';
+  function updateNow(){
+    const now=new Date(),dow=now.getDay(),ci=order.indexOf(dow);
+    const t=now.getHours()+now.getMinutes()/60;
+    dhs.forEach((d,i)=>d.classList.toggle('today',i===ci));
+    g.querySelectorAll('.blk.now').forEach(b=>b.classList.remove('now'));
+    nowline.remove();
+    if(ci>-1&&t>=START&&t<=END){
+      nowline.style.top=((t-START)*H)+'px';
+      cols[ci].appendChild(nowline);
+      const blks=cols[ci].querySelectorAll('.blk');
+      (week[dow]||[]).forEach((b,bi)=>{if(t>=b[0]&&t<b[1]&&blks[bi])blks[bi].classList.add('now');});
+    }
+    const ev=dayEvents(now).filter(e=>e[2]!=='transit');
+    const cur=ev.find(e=>t>=e[0]&&t<e[1]);
+    const nxt=ev.find(e=>e[0]>t);
+    const chip=document.getElementById('nowchip');
+    if(cur)chip.innerHTML=`Now · <b>${cur[3]}</b> · until ${fmtT(cur[1])}`;
+    else if(nxt)chip.innerHTML=`Up next · <b>${nxt[3]}</b> · ${fmtT(nxt[0])}`;
+    else chip.innerHTML='';
+  }
+  updateNow();setInterval(updateNow,30000);
 })();
 
 /* MONTH */
@@ -382,6 +466,7 @@ const semMeta=[];
     if(!badges.length)badges.push('<span class="bd quiet">Standard rhythm — quiz Tue · 241 HW Fri</span>');
     semMeta[wi]={n:w.n,range:fmt(w.s)+' – '+fmt(w.e),items,isCr,isBr,isFin};
     const cls=['wk'];if(isCr)cls.push('crunchw');if(isBr)cls.push('brkw');if(isFin)cls.push('finalw');
+    if(NOW>=w.s&&NOW<new Date(w.e.getFullYear(),w.e.getMonth(),w.e.getDate()+1))cls.push('thisw');
     list.insertAdjacentHTML('beforeend',`<div class="${cls.join(' ')}" data-wi="${wi}"><div class="wlab"><div class="n">Week ${w.n}</div><div class="d">${fmt(w.s)} – ${fmt(w.e)}</div></div><div class="badges">${badges.join('')}</div></div>`);
   });
 })();
@@ -390,9 +475,28 @@ const semMeta=[];
 const INFO=window.CAL.INFO;INFO['Lights out 11:15']=INFO['Lights out'];
 
 const tip=document.getElementById('tip');
+const TOUCH=matchMedia('(hover: none)').matches;
+let pinned=false;
 const catColor={class:'var(--class)',study:'var(--study)',research:'var(--research)',startup:'var(--startup)',gym:'var(--gym)',personal:'rgba(255,255,255,.6)',transit:'rgba(255,255,255,.4)'};
 function showTip(html){tip.innerHTML=html;tip.classList.add('on');}
-function hideTip(){tip.classList.remove('on');}
+function hideTip(){if(pinned)return;tip.classList.remove('on');}
+function unpin(){pinned=false;pinAnchor=null;tip.classList.remove('on','pinned');tip.style.left='';tip.style.top='';}
+const SHEET=matchMedia('(max-width: 640px)'); // must agree with the CSS breakpoint, not innerWidth
+let pinAnchor=null,pinHTML='';
+function pinTip(html,anchor){
+  pinned=true;pinAnchor=anchor;pinHTML=html;
+  tip.style.left='';tip.style.top='';   // clear stale offsets BEFORE measuring, or width is clamped
+  tip.innerHTML='<button id="tipx" aria-label="Close">✕</button>'+html;
+  tip.classList.add('on','pinned');
+  if(SHEET.matches)return;              // bottom sheet — CSS positions it
+  const r=anchor.getBoundingClientRect(),w=tip.offsetWidth,h=tip.offsetHeight;
+  let x=r.right+12,y=r.top;
+  if(x+w>innerWidth-10)x=r.left-w-12;
+  if(x<8){x=Math.min(Math.max(8,r.left),Math.max(8,innerWidth-w-8));y=r.bottom+10;}
+  if(y+h>innerHeight-10)y=Math.max(8,innerHeight-h-10);
+  tip.style.left=x+'px';tip.style.top=Math.max(8,y)+'px';
+}
+addEventListener('resize',()=>{if(pinned&&pinAnchor)pinTip(pinHTML,pinAnchor);}); // rotation / breakpoint crossing
 function moveTip(e){
   const w=tip.offsetWidth,h=tip.offsetHeight;
   let x=e.clientX+16,y=e.clientY+18;
@@ -400,11 +504,10 @@ function moveTip(e){
   if(y+h>innerHeight-10)y=e.clientY-h-14;
   tip.style.left=Math.max(8,x)+'px';tip.style.top=Math.max(8,y)+'px';
 }
-document.addEventListener('mousemove',e=>{if(tip.classList.contains('on'))moveTip(e);});
+document.addEventListener('mousemove',e=>{if(!pinned&&tip.classList.contains('on'))moveTip(e);});
 
-/* week blocks */
-document.getElementById('wkgrid').addEventListener('mouseover',e=>{
-  const b=e.target.closest('.blk');if(!b)return;
+/* content builders — shared by hover and click-to-pin */
+function blkHTML(b){
   const k=b.dataset.k,info=INFO[k],cat=b.dataset.cat;
   let html=`<div class="tp-cat" style="color:${catColor[cat]}">${catNames[cat]||cat}</div>
     <div class="tp-title">${k}</div><div class="tp-sub">${b.dataset.time}${info&&info.sub?' · '+info.sub:''}</div>`;
@@ -412,13 +515,21 @@ document.getElementById('wkgrid').addEventListener('mouseover',e=>{
     (info.rows||[]).forEach(r=>html+=`<div class="tp-row"><b>${r[0]}</b><span>${r[1]}</span></div>`);
     if(info.note)html+=`<div class="tp-note">${info.note}</div>`;
   }
-  showTip(html);moveTip(e);
+  return html;
+}
+
+/* week blocks */
+document.getElementById('wkgrid').addEventListener('mouseover',e=>{
+  if(TOUCH||pinned)return;
+  const b=e.target.closest('.blk');if(!b)return;
+  showTip(blkHTML(b));moveTip(e);
 });
 document.getElementById('wkgrid').addEventListener('mouseout',e=>{if(e.target.closest('.blk'))hideTip();});
 
 /* month cells */
 const kcT={exam:'var(--exam);color:#fff',hw:'var(--hw);color:#fff',brk:'var(--brk)',fly:'var(--fly)',adm:'rgba(255,255,255,.28);color:#fff',mile:'var(--mile)'};
 document.getElementById('mgrid').addEventListener('mouseover',e=>{
+  if(TOUCH||pinned)return;
   const c=e.target.closest('.cell');if(!c||!c.dataset.date)return;
   const k=c.dataset.date,dt=new Date(k+'T12:00:00');
   const sp=S[k]||[],ev=dayEvents(dt);
@@ -442,9 +553,8 @@ document.getElementById('mgrid').addEventListener('mouseover',e=>{
 document.getElementById('mgrid').addEventListener('mouseout',e=>{if(e.target.closest('.cell'))hideTip();});
 
 /* semester rows */
-document.getElementById('semlist').addEventListener('mouseover',e=>{
-  const r=e.target.closest('.wk');if(!r)return;
-  const m=semMeta[+r.dataset.wi];if(!m)return;
+function wkRowHTML(r){
+  const m=semMeta[+r.dataset.wi];if(!m)return '';
   let html=`<div class="tp-title">Week ${m.n}</div><div class="tp-sub">${m.range}</div>`;
   if(m.isCr)html+=`<span class="tp-pill" style="background:var(--exam);color:#fff">CRUNCH — startup at check-in level</span>`;
   if(m.isBr)html+=`<span class="tp-pill" style="background:var(--brk)">Fall Break — Austin, family, remote startup</span>`;
@@ -453,9 +563,28 @@ document.getElementById('semlist').addEventListener('mouseover',e=>{
     m.items.forEach(it=>html+=`<div class="tp-ev"><i style="background:${(kcT[it.k]||'').split(';')[0]||'rgba(255,255,255,.4)'};color:#fff"></i><span class="tv">${it.t}</span><span class="tm2">${it.d}</span></div>`);
   }
   html+=`<div class="tp-note">Standing rhythm: 241 quiz Tue 4 PM · 241 HW Fri 5 PM · 151 HW LaTeX draft Sun · research Wed/Thu/Fri/Sun · gym daily · startup nightly</div>`;
+  return html;
+}
+document.getElementById('semlist').addEventListener('mouseover',e=>{
+  if(TOUCH||pinned)return;
+  const r=e.target.closest('.wk');if(!r)return;
+  const html=wkRowHTML(r);if(!html)return;
   showTip(html);moveTip(e);
 });
 document.getElementById('semlist').addEventListener('mouseout',e=>{if(e.target.closest('.wk'))hideTip();});
+
+/* click / tap to pin — the card stays for reference until you click away, hit ✕, or press Esc */
+let downInTip=false; // a text-selection drag that starts in the card must not dismiss it on release
+document.addEventListener('pointerdown',e=>{downInTip=tip.contains(e.target);});
+document.addEventListener('click',e=>{
+  if(e.target.closest('#tipx')){unpin();return;}
+  if(tip.contains(e.target)||downInTip)return;
+  const a=e.target.closest('.blk,.wk');
+  if(!a){if(pinned)unpin();return;}
+  const html=a.classList.contains('blk')?blkHTML(a):wkRowHTML(a);
+  if(html)pinTip(html,a);else unpin();
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){unpin();closeD();}});
 </script>
 </body>
 </html>
