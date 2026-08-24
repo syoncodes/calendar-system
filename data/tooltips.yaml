@@ -10,6 +10,7 @@
     - [Prof, "Jonathan Simone"]
     - [Email, "jsimone@andrew.cmu.edu"]
     - [Room, "HOA 160 · MWF 9:00–9:50"]
+    - [Walk, "CFA building, far south corner — 6 min from Cohon, ~15 from Mudge"]
     - [Format, "CS-flavored section — NumPy/Python applications"]
     - [OH, "See Canvas (instructor + TAs)"]
   note: "Grading: quizzes 15% · four exams 20% each · project 5%. In-class exams Fri Sep 25 & Fri Oct 30; Exams 3+4 in finals week. Fri HW (due 5 PM) is optional but the Tue quiz mirrors it — always do it."
@@ -46,7 +47,7 @@
   rows:
     - [Room, "GHC 4401 · Tue 7:00–8:20 PM"]
     - [Staff, "Cervesato / Kohlbrenner + TAs"]
-  note: "Evening classes after 5 PM meet even on Democracy Day (Nov 3). Startup work shifts to 8:30 after this."
+  note: "Evening classes after 5 PM meet even on Democracy Day (Nov 3). Startup shifts to 8:40 after this — GHC → Mudge is a ~12-min walk."
 
 "15-122 Recitation":
   sub: "Friday recitation"
@@ -98,12 +99,12 @@
   note: "M/W/F: workout must end 8:20 to make the 9:00 lecture — zero slack. Save heavy compound days for full sessions."
 
 "Gym — short":
-  sub: "~70-minute session"
+  sub: "~65-minute session"
   rows:
     - [Where, "Cohon UC"]
-    - [Window, "6:30–7:40 — hard ceiling"]
-    - [After, "Shower 7:40–7:55 → WEH 5310 by 8:00"]
-  note: "Gym opens 6:30 and recitation is at 8, so ~70 min is the max. Program Tue/Thu as light days."
+    - [Window, "6:30–7:35 — hard ceiling"]
+    - [After, "Shower 7:35–7:50 → 8-min walk → WEH 5310 by 8:00"]
+  note: "Gym opens 6:30 and recitation is at 8; 65 min leaves a real shower+walk buffer. Program Tue/Thu as light days."
 
 "Deep Work — 122 / 151":
   sub: "Prime focus block · 2h 45m"
@@ -144,14 +145,14 @@
 "Startup work":
   sub: "Weeknight session · 3 hrs"
   rows:
-    - [When, "8:00–11:00 PM (Tue: 8:30–10:45)"]
+    - [When, "8:00–11:00 PM (Tue: 8:40–10:45)"]
     - [Cadence, "Every weekday evening"]
   note: "~21 hrs/week total. Pre-agreed exception: crunch weeks drop to short check-ins."
 
 "Startup work (adj.)":
   sub: "Adjusted Tuesday session"
   rows:
-    - [When, "8:30–10:45 PM — after the 15-122 evening class"]
+    - [When, "8:40–10:45 PM — after the 15-122 evening class + walk home"]
   note: "Hard stop 10:45 — Tuesday still ends with lights out at 11:15."
 
 "Startup deep work":
@@ -193,13 +194,14 @@
   sub: "Protected personal time"
   rows:
     - [Daily, "10–15 min with family/friends"]
+    - [Where, "Cohon / The Exchange — walk home during the call"]
   note: "Non-negotiable by design."
 
 "Dinner + family":
   sub: "Tuesday wind-down"
   rows:
     - [Window, "5:00–6:45 before the evening class"]
-  note: "Longest dinner of the week."
+  note: "Longest dinner of the week. Leave for GHC by 6:45 — ~12-min walk from Mudge."
 
 "Long family call":
   sub: "Weekend deep catch-up"
@@ -247,9 +249,9 @@
 "Wake":
   sub: "Weekend wake"
   rows:
-    - [Sat, "8:30"]
-    - [Sun, "8:45"]
-  note: "Sleep bank days. Guard them."
+    - [Sat, "8:30 — out the door by 8:50"]
+    - [Sun, "8:30"]
+  note: "Sleep bank days. Guard them. Gym opens at 9:00 and Cohon is ~8 min from Mudge."
 
 "Lights out":
   sub: "Hard stop"
@@ -265,6 +267,7 @@
 
 "Shower + brunch": {sub: "Weekend reset", rows: [], note: "Post-gym reset before the family call."}
 "Dinner": {sub: "Weekend dinner", rows: [], note: ""}
-"Shower → HOA": {sub: "Transition", rows: [[Route, "UC showers → HOA 160"], [Budget, "30 min total"]], note: "Zero slack — pack the class bag the night before."}
-"Shower → WEH": {sub: "Transition", rows: [[Route, "UC showers → WEH 5310"], [Budget, "20 min"]], note: "Fastest turnaround of the week."}
-"Lunch": {sub: "Grab-and-go", rows: [[Window, "12:45–1:00"]], note: "Buy before deep work ends, eat en route."}
+"Shower → HOA": {sub: "Transition", rows: [[Route, "Cohon showers → CFA building, ~6-min walk"], [Budget, "30 min · ~10 min spare"]], note: "Shower AT Cohon — never back to Mudge (that turns 6 min into 25). Pack the class bag the night before."}
+"Shower → WEH": {sub: "Transition", rows: [[Route, "Cohon showers → WEH 5310, ~8-min walk"], [Budget, "25 min"]], note: "Fastest turnaround of the week — gym bag packed the night before."}
+"Lunch": {sub: "Grab-and-go", rows: [[Window, "12:30–1:00"], [Where, "La Prima / iNoodle — inside GHC"]], note: "Eat in Gates — your 1:00 class is upstairs in 4401. No trek."}
+"Walk → Cohon UC": {sub: "Transition", rows: [[Route, "Mudge → Cohon UC, ~8 min"]], note: "Gym bag + class bag both packed — you don't come back to Mudge until evening."}

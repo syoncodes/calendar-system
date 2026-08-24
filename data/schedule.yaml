@@ -7,12 +7,13 @@
 # ============================================================
 
 monday:
-  - {start: "06:00", end: "06:30", cat: personal, title: "Wake + ready", ics: false}
+  - {start: "06:00", end: "06:20", cat: personal, title: "Wake + ready", ics: false}
+  - {start: "06:20", end: "06:30", cat: transit, title: "Walk → Cohon UC", ics: false}
   - {start: "06:30", end: "08:20", cat: gym, title: "Gym — full", meta: "Cohon UC"}
   - {start: "08:20", end: "08:50", cat: transit, title: "Shower → HOA", ics: false}
   - {start: "09:00", end: "09:50", cat: class, title: "21-241 Lecture", meta: "HOA 160"}
-  - {start: "10:00", end: "12:45", cat: study, title: "Deep Work — 122 / 151"}
-  - {start: "12:45", end: "13:00", cat: transit, title: "Lunch", ics: false}
+  - {start: "10:00", end: "12:30", cat: study, title: "Deep Work — 122 / 151", meta: "Sorrells / GHC"}
+  - {start: "12:30", end: "13:00", cat: transit, title: "Lunch", ics: false}
   - {start: "13:00", end: "13:50", cat: class, title: "15-151 Lecture", meta: "GHC 4401"}
   - {start: "14:00", end: "15:50", cat: study, title: "Study + 241 quiz prep", meta: "flex → research"}
   - {start: "16:00", end: "16:50", cat: class, title: "FYS 07-128", meta: "GHC 4401"}
@@ -22,9 +23,10 @@ monday:
   - {start: "23:00", end: "23:15", cat: personal, title: "Lights out", ics: false}
 
 tuesday:
-  - {start: "06:00", end: "06:30", cat: personal, title: "Wake + ready", ics: false}
-  - {start: "06:30", end: "07:40", cat: gym, title: "Gym — short", meta: "~70 min"}
-  - {start: "07:40", end: "08:00", cat: transit, title: "Shower → WEH", ics: false}
+  - {start: "06:00", end: "06:20", cat: personal, title: "Wake + ready", ics: false}
+  - {start: "06:20", end: "06:30", cat: transit, title: "Walk → Cohon UC", ics: false}
+  - {start: "06:30", end: "07:35", cat: gym, title: "Gym — short", meta: "~65 min"}
+  - {start: "07:35", end: "08:00", cat: transit, title: "Shower → WEH", ics: false}
   - {start: "08:00", end: "08:50", cat: class, title: "15-151 Recitation", meta: "WEH 5310"}
   - {start: "09:00", end: "09:25", cat: personal, title: "Breakfast", ics: false}
   - {start: "09:30", end: "10:50", cat: class, title: "15-122 Lecture", meta: "GHC 4401"}
@@ -34,16 +36,17 @@ tuesday:
   - {start: "16:00", end: "16:50", cat: class, title: "21-241 Rec + QUIZ", meta: "BH 237A"}
   - {start: "17:00", end: "18:45", cat: personal, title: "Dinner + family"}
   - {start: "19:00", end: "20:20", cat: class, title: "15-122 Evening", meta: "GHC 4401", evening: true}
-  - {start: "20:30", end: "22:45", cat: startup, title: "Startup work (adj.)"}
+  - {start: "20:40", end: "22:45", cat: startup, title: "Startup work (adj.)"}
   - {start: "23:00", end: "23:15", cat: personal, title: "Lights out", ics: false}
 
 wednesday:
-  - {start: "06:00", end: "06:30", cat: personal, title: "Wake + ready", ics: false}
+  - {start: "06:00", end: "06:20", cat: personal, title: "Wake + ready", ics: false}
+  - {start: "06:20", end: "06:30", cat: transit, title: "Walk → Cohon UC", ics: false}
   - {start: "06:30", end: "08:20", cat: gym, title: "Gym — full", meta: "Cohon UC"}
   - {start: "08:20", end: "08:50", cat: transit, title: "Shower → HOA", ics: false}
   - {start: "09:00", end: "09:50", cat: class, title: "21-241 Lecture", meta: "HOA 160"}
-  - {start: "10:00", end: "12:45", cat: study, title: "Deep Work — 122 / 151"}
-  - {start: "12:45", end: "13:00", cat: transit, title: "Lunch", ics: false}
+  - {start: "10:00", end: "12:30", cat: study, title: "Deep Work — 122 / 151", meta: "Sorrells / GHC"}
+  - {start: "12:30", end: "13:00", cat: transit, title: "Lunch", ics: false}
   - {start: "13:00", end: "13:50", cat: class, title: "15-151 Lecture", meta: "GHC 4401"}
   - {start: "14:00", end: "15:50", cat: research, title: "RESEARCH BLOCK", meta: "lab hours"}
   - {start: "16:00", end: "16:50", cat: class, title: "FYS 07-128", meta: "GHC 4401"}
@@ -53,9 +56,10 @@ wednesday:
   - {start: "23:00", end: "23:15", cat: personal, title: "Lights out", ics: false}
 
 thursday:
-  - {start: "06:00", end: "06:30", cat: personal, title: "Wake + ready", ics: false}
-  - {start: "06:30", end: "07:40", cat: gym, title: "Gym — short", meta: "~70 min"}
-  - {start: "07:40", end: "08:00", cat: transit, title: "Shower → WEH", ics: false}
+  - {start: "06:00", end: "06:20", cat: personal, title: "Wake + ready", ics: false}
+  - {start: "06:20", end: "06:30", cat: transit, title: "Walk → Cohon UC", ics: false}
+  - {start: "06:30", end: "07:35", cat: gym, title: "Gym — short", meta: "~65 min"}
+  - {start: "07:35", end: "08:00", cat: transit, title: "Shower → WEH", ics: false}
   - {start: "08:00", end: "08:50", cat: class, title: "15-151 Recitation", meta: "WEH 5310"}
   - {start: "09:00", end: "09:25", cat: personal, title: "Breakfast", ics: false}
   - {start: "09:30", end: "10:50", cat: class, title: "15-122 Lecture", meta: "GHC 4401"}
@@ -69,12 +73,13 @@ thursday:
   - {start: "23:00", end: "23:15", cat: personal, title: "Lights out", ics: false}
 
 friday:
-  - {start: "06:00", end: "06:30", cat: personal, title: "Wake + ready", ics: false}
+  - {start: "06:00", end: "06:20", cat: personal, title: "Wake + ready", ics: false}
+  - {start: "06:20", end: "06:30", cat: transit, title: "Walk → Cohon UC", ics: false}
   - {start: "06:30", end: "08:20", cat: gym, title: "Gym — full", meta: "Cohon UC"}
   - {start: "08:20", end: "08:50", cat: transit, title: "Shower → HOA", ics: false}
   - {start: "09:00", end: "09:50", cat: class, title: "21-241 Lecture", meta: "HOA 160"}
-  - {start: "10:00", end: "12:45", cat: study, title: "Deep Work — submit 241 HW", meta: "due 5 PM"}
-  - {start: "12:45", end: "13:00", cat: transit, title: "Lunch", ics: false}
+  - {start: "10:00", end: "12:30", cat: study, title: "Deep Work — submit 241 HW", meta: "due 5 PM"}
+  - {start: "12:30", end: "13:00", cat: transit, title: "Lunch", ics: false}
   - {start: "13:00", end: "13:50", cat: class, title: "15-151 Lecture", meta: "GHC 4401"}
   - {start: "14:00", end: "15:50", cat: research, title: "RESEARCH BLOCK", meta: "prof meetings"}
   - {start: "16:00", end: "16:50", cat: class, title: "15-122 Recitation", meta: "WEH 5304"}
@@ -94,7 +99,8 @@ saturday:
   - {start: "19:00", end: "22:00", cat: personal, title: "Free / social", meta: "research overflow ok"}
 
 sunday:
-  - {start: "08:45", end: "09:00", cat: personal, title: "Wake", ics: false}
+  - {start: "08:30", end: "08:50", cat: personal, title: "Wake", ics: false}
+  - {start: "08:50", end: "09:00", cat: transit, title: "Walk → Cohon UC", ics: false}
   - {start: "09:00", end: "11:00", cat: gym, title: "Gym — full", meta: "opens 9:00"}
   - {start: "11:00", end: "13:45", cat: study, title: "Big study — 151 HW in LaTeX"}
   - {start: "14:00", end: "17:00", cat: startup, title: "Startup deep work"}
