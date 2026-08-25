@@ -138,7 +138,14 @@ def build_datajs(schedule, events, tooltips):
                    for b in schedule.get(day, [])]
     S = {}
     for ev in events["events"]:
-        S.setdefault(str(ev["date"]), []).append({"t": ev["title"], "k": ev["kind"]})
+        e = {"t": ev["title"], "k": ev["kind"]}
+        if ev.get("time"):
+            h, m = map(int, str(ev["time"]).split(":"))
+            e["s"] = h + m / 60
+            e["d"] = int(ev.get("duration_min", 60))
+        if ev.get("location"):
+            e["loc"] = ev["location"]
+        S.setdefault(str(ev["date"]), []).append(e)
     cal = {
         "week": week,
         "S": S,
