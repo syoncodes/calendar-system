@@ -22,6 +22,7 @@ config:
 
 events:
   - {date: 2026-08-24, kind: mile, title: "First Day of Classes"}
+  - {date: 2026-08-26, kind: mile, title: "Research blocks this week → HW + prof/journal-club scouting (Cortina exception pending)"}
   - {date: 2026-08-26, kind: mile, title: "Aleksandar Petkov — Swartz Center", time: "11:00", duration_min: 30, location: "Swartz Center, Tepper Quad"}
   - {date: 2026-08-26, kind: mile, title: "Business meeting", time: "14:15", duration_min: 30, location: "Meeting room, Tepper Quad (Swartz)"}
 

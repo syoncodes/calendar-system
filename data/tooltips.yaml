@@ -137,6 +137,8 @@
 "RESEARCH BLOCK":
   sub: "~8 hrs/week total (Wed·Thu·Fri·Sun)"
   rows:
+    - [Status, "No lab yet — first-year exception pending with Tom Cortina"]
+    - [This week, "Mostly HW · keep ~30 min/block to scout profs & journal clubs"]
     - [Phase 1, "Weeks 1–3: outreach — read 1–2 papers per prof, 5-sentence emails"]
     - [Phase 2, "Standing lab hours once placed"]
     - [Fri, "Best day for professor meetings"]
