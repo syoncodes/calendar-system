@@ -67,19 +67,20 @@ events:
   - {date: 2026-12-03, kind: hw, title: "122 PG12 due — c0vm (THURSDAY)", time: "21:00", duration_min: 15, location: "Autolab"}
 
   # ---- 15-122 weekly checkins (Tue 7:00/7:45pm slot per Ed; 60 pts, closed book — these replace midterms) ----
-  - {date: 2026-09-01, kind: exam, title: "122 Checkin 1 (Lec 0–1)", time: "19:00", duration_min: 35, location: "GHC 4401 · slot per Ed"}
-  - {date: 2026-09-08, kind: exam, title: "122 Checkin 2 (Lec 0–1)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
-  - {date: 2026-09-15, kind: exam, title: "122 Checkin 3 (Lec 2–3)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
-  - {date: 2026-09-22, kind: exam, title: "122 Checkin 4 (Lec 4–5)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
-  - {date: 2026-09-29, kind: exam, title: "122 Checkin 5 (Lec 6–7)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
-  - {date: 2026-10-06, kind: exam, title: "122 Checkin 6 (Lec 8–9)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
-  - {date: 2026-10-20, kind: exam, title: "122 Checkin 7 (Lec 10–11)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
-  - {date: 2026-10-27, kind: exam, title: "122 Checkin 8 (Lec 12–13)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
-  - {date: 2026-11-03, kind: exam, title: "122 Checkin 9 (Lec 14–15) — meets on Democracy Day", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
-  - {date: 2026-11-10, kind: exam, title: "122 Checkin 10 (Lec 16–17)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
-  - {date: 2026-11-17, kind: exam, title: "122 Checkin 11 (Lec 18–19)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
-  - {date: 2026-11-24, kind: exam, title: "122 Checkin 12 (Lec 20–21) — Thanksgiving wk, alt slot per Ed", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
-  - {date: 2026-12-01, kind: exam, title: "122 Checkin 13 (Lec 22–24)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
+  - {date: 2026-09-01, kind: exam, title: "122 Checkin 1 (Lec 0–1)", time: "19:00", duration_min: 35, location: "GHC 4401 / DH 2210 · section TBA"}
+  - {date: 2026-09-08, kind: exam, title: "122 Checkin 2 (Lec 0–1)", time: "19:00", duration_min: 35, location: "GHC 4401 / DH 2210 · section TBA"}
+  - {date: 2026-09-15, kind: exam, title: "122 Checkin 3 (Lec 2–3)", time: "19:00", duration_min: 35, location: "GHC 4401 / DH 2210 · section TBA"}
+  - {date: 2026-09-22, kind: exam, title: "122 Checkin 4 (Lec 4–5)", time: "19:00", duration_min: 35, location: "GHC 4401 / DH 2210 · section TBA"}
+  - {date: 2026-09-29, kind: exam, title: "122 Checkin 5 (Lec 6–7)", time: "19:00", duration_min: 35, location: "GHC 4401 / DH 2210 · section TBA"}
+  - {date: 2026-10-06, kind: exam, title: "122 Checkin 6 (Lec 8–9)", time: "19:00", duration_min: 35, location: "GHC 4401 / DH 2210 · section TBA"}
+  - {date: 2026-10-20, kind: exam, title: "122 Checkin 7 (Lec 10–11)", time: "19:00", duration_min: 35, location: "GHC 4401 / DH 2210 · section TBA"}
+  - {date: 2026-10-27, kind: exam, title: "122 Checkin 8 (Lec 12–13)", time: "19:00", duration_min: 35, location: "GHC 4401 / DH 2210 · section TBA"}
+  - {date: 2026-11-03, kind: exam, title: "122 Checkin 9 (Lec 14–15) — meets on Democracy Day", time: "19:00", duration_min: 35, location: "GHC 4401 / DH 2210 · section TBA"}
+  - {date: 2026-11-10, kind: exam, title: "122 Checkin 10 (Lec 16–17)", time: "19:00", duration_min: 35, location: "GHC 4401 / DH 2210 · section TBA"}
+  - {date: 2026-11-17, kind: exam, title: "122 Checkin 11 (Lec 18–19)", time: "19:00", duration_min: 35, location: "GHC 4401 / DH 2210 · section TBA"}
+  - {date: 2026-11-22, kind: exam, title: "122 Checkin 12 ALT slot (before Thanksgiving travel)", time: "14:00", duration_min: 35, location: "GHC 4401 / DH 2210"}
+  - {date: 2026-11-24, kind: exam, title: "122 Checkin 12 (Lec 20–21) — or take Sun alt slot", time: "19:00", duration_min: 35, location: "GHC 4401 / DH 2210 · section TBA"}
+  - {date: 2026-12-01, kind: exam, title: "122 Checkin 13 (Lec 22–24)", time: "19:00", duration_min: 35, location: "GHC 4401 / DH 2210 · section TBA"}
 
   # ---- 80-180 (quizzes 50% of grade! most Thursdays end of class; 2 evening midterms TBA) ----
   - {date: 2026-09-03, kind: exam, title: "180 Quiz 1 (end of class)", time: "13:30", duration_min: 20, location: "BH A51"}
