@@ -18,6 +18,7 @@ config:
   no_daytime_dates: [2026-11-03]
   # high-pressure exam weeks (rendered with red tint; startup at check-in level):
   crunch_dates: [2026-09-21, 2026-09-22, 2026-09-23, 2026-09-24, 2026-09-25,
+                 2026-10-19, 2026-10-20, 2026-10-21, 2026-10-22, 2026-10-23,
                  2026-10-26, 2026-10-27, 2026-10-28, 2026-10-29, 2026-10-30]
 
 events:
@@ -26,8 +27,76 @@ events:
   - {date: 2026-08-26, kind: mile, title: "Aleksandar Petkov — Swartz Center", time: "11:00", duration_min: 30, location: "Swartz Center, Tepper Quad"}
   - {date: 2026-08-26, kind: mile, title: "Business meeting", time: "14:15", duration_min: 30, location: "Meeting room, Tepper Quad (Swartz)"}
 
-  # ---- 15-151 homework (20% of grade, LaTeX +1pt) ----
-  - {date: 2026-09-02, kind: hw, title: "151 HW 1 due"}
+  # ---- week-1 one-offs & optional sessions ----
+  - {date: 2026-08-29, kind: mile, title: "122 proofs bootcamp", time: "11:00", duration_min: 60, location: "Room on Ed"}
+  - {date: 2026-08-29, kind: mile, title: "151 LaTeX + Gradescope session", time: "12:00", duration_min: 120, location: "DH 2210"}
+  - {date: 2026-08-30, kind: mile, title: "151 proof-writing session", time: "14:00", duration_min: 120, location: "DH 2210"}
+  - {date: 2026-08-31, kind: adm, title: "Tuition must post today (late fees after)"}
+
+  # ---- 21-241 (HW due Fri 5pm Gradescope weekly — optional but quiz mirrors it; quizzes Tue in rec from Sep 1) ----
+  - {date: 2026-08-28, kind: hw, title: "241 HW1 due", time: "17:00", duration_min: 15, location: "Gradescope"}
+  - {date: 2026-09-01, kind: exam, title: "241 Quiz 1 (in recitation)", time: "16:00", duration_min: 25, location: "BH 237A"}
+
+  # ---- 15-122 written PR (due Thu 6pm Gradescope — STRICT, no late) ----
+  - {date: 2026-08-27, kind: hw, title: "122 PR0 due — REQUIRED to pass", time: "18:00", duration_min: 15, location: "Gradescope"}
+  - {date: 2026-09-03, kind: hw, title: "122 PR1 due (Lec 0–1)", time: "18:00", duration_min: 15, location: "Gradescope"}
+  - {date: 2026-09-10, kind: hw, title: "122 PR2 due (Lec 2–3)", time: "18:00", duration_min: 15, location: "Gradescope"}
+  - {date: 2026-09-17, kind: hw, title: "122 PR3 due (Lec 4–5)", time: "18:00", duration_min: 15, location: "Gradescope"}
+  - {date: 2026-09-24, kind: hw, title: "122 PR4 due (Lec 6–7)", time: "18:00", duration_min: 15, location: "Gradescope"}
+  - {date: 2026-10-01, kind: hw, title: "122 PR5 due (Lec 8–9)", time: "18:00", duration_min: 15, location: "Gradescope"}
+  - {date: 2026-10-08, kind: hw, title: "122 PR6 due (Lec 10–11)", time: "18:00", duration_min: 15, location: "Gradescope"}
+  - {date: 2026-10-22, kind: hw, title: "122 PR7 due (Lec 12–13)", time: "18:00", duration_min: 15, location: "Gradescope"}
+  - {date: 2026-10-29, kind: hw, title: "122 PR8 due (Lec 14–15)", time: "18:00", duration_min: 15, location: "Gradescope"}
+  - {date: 2026-11-05, kind: hw, title: "122 PR9 due (Lec 16–17)", time: "18:00", duration_min: 15, location: "Gradescope"}
+  - {date: 2026-11-12, kind: hw, title: "122 PR10 due (Lec 18–19)", time: "18:00", duration_min: 15, location: "Gradescope"}
+  - {date: 2026-11-19, kind: hw, title: "122 PR11 due (Lec 20–21)", time: "18:00", duration_min: 15, location: "Gradescope"}
+  - {date: 2026-11-29, kind: hw, title: "122 PR12 due (Lec 22–24) — SUNDAY", time: "18:00", duration_min: 15, location: "Gradescope"}
+
+  # ---- 15-122 programming PG (due Sun 9pm Autolab — 3 late days/sem, max 1 per HW) ----
+  - {date: 2026-09-06, kind: hw, title: "122 PG1 due — C0", time: "21:00", duration_min: 15, location: "Autolab"}
+  - {date: 2026-09-13, kind: hw, title: "122 PG2 due — ints", time: "21:00", duration_min: 15, location: "Autolab"}
+  - {date: 2026-09-20, kind: hw, title: "122 PG3 due — arrays", time: "21:00", duration_min: 15, location: "Autolab"}
+  - {date: 2026-09-27, kind: hw, title: "122 PG4 due — sorting", time: "21:00", duration_min: 15, location: "Autolab"}
+  - {date: 2026-10-04, kind: hw, title: "122 PG5 due — stacks", time: "21:00", duration_min: 15, location: "Autolab"}
+  - {date: 2026-10-11, kind: hw, title: "122 PG6 due — lists checkpoint", time: "21:00", duration_min: 15, location: "Autolab"}
+  - {date: 2026-10-25, kind: hw, title: "122 PG7 due — lists final (2-wk)", time: "21:00", duration_min: 15, location: "Autolab"}
+  - {date: 2026-11-01, kind: hw, title: "122 PG8 due — trees", time: "21:00", duration_min: 15, location: "Autolab"}
+  - {date: 2026-11-08, kind: hw, title: "122 PG9 due — C", time: "21:00", duration_min: 15, location: "Autolab"}
+  - {date: 2026-11-15, kind: hw, title: "122 PG10 due — C", time: "21:00", duration_min: 15, location: "Autolab"}
+  - {date: 2026-11-22, kind: hw, title: "122 PG11 due — c0vm", time: "21:00", duration_min: 15, location: "Autolab"}
+  - {date: 2026-12-03, kind: hw, title: "122 PG12 due — c0vm (THURSDAY)", time: "21:00", duration_min: 15, location: "Autolab"}
+
+  # ---- 15-122 weekly checkins (Tue 7:00/7:45pm slot per Ed; 60 pts, closed book — these replace midterms) ----
+  - {date: 2026-09-01, kind: exam, title: "122 Checkin 1 (Lec 0–1)", time: "19:00", duration_min: 35, location: "GHC 4401 · slot per Ed"}
+  - {date: 2026-09-08, kind: exam, title: "122 Checkin 2 (Lec 0–1)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
+  - {date: 2026-09-15, kind: exam, title: "122 Checkin 3 (Lec 2–3)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
+  - {date: 2026-09-22, kind: exam, title: "122 Checkin 4 (Lec 4–5)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
+  - {date: 2026-09-29, kind: exam, title: "122 Checkin 5 (Lec 6–7)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
+  - {date: 2026-10-06, kind: exam, title: "122 Checkin 6 (Lec 8–9)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
+  - {date: 2026-10-20, kind: exam, title: "122 Checkin 7 (Lec 10–11)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
+  - {date: 2026-10-27, kind: exam, title: "122 Checkin 8 (Lec 12–13)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
+  - {date: 2026-11-03, kind: exam, title: "122 Checkin 9 (Lec 14–15) — meets on Democracy Day", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
+  - {date: 2026-11-10, kind: exam, title: "122 Checkin 10 (Lec 16–17)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
+  - {date: 2026-11-17, kind: exam, title: "122 Checkin 11 (Lec 18–19)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
+  - {date: 2026-11-24, kind: exam, title: "122 Checkin 12 (Lec 20–21) — Thanksgiving wk, alt slot per Ed", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
+  - {date: 2026-12-01, kind: exam, title: "122 Checkin 13 (Lec 22–24)", time: "19:00", duration_min: 35, location: "Checkin room per Ed"}
+
+  # ---- 80-180 (quizzes 50% of grade! most Thursdays end of class; 2 evening midterms TBA) ----
+  - {date: 2026-09-03, kind: exam, title: "180 Quiz 1 (end of class)", time: "13:30", duration_min: 20, location: "BH A51"}
+  - {date: 2026-09-10, kind: exam, title: "180 Quiz 2 (end of class)", time: "13:30", duration_min: 20, location: "BH A51"}
+  - {date: 2026-09-17, kind: exam, title: "180 Quiz 3 (end of class)", time: "13:30", duration_min: 20, location: "BH A51"}
+  - {date: 2026-09-24, kind: exam, title: "180 MIDTERM 1 — phonetics/phonology (evening, time TBA)"}
+  - {date: 2026-10-01, kind: exam, title: "180 Quiz 4 (end of class)", time: "13:30", duration_min: 20, location: "BH A51"}
+  - {date: 2026-10-08, kind: exam, title: "180 Quiz 5 (end of class)", time: "13:30", duration_min: 20, location: "BH A51"}
+  - {date: 2026-10-22, kind: exam, title: "180 MIDTERM 2 — morphology (evening, time TBA)"}
+  - {date: 2026-10-29, kind: exam, title: "180 Quiz 6 (end of class)", time: "13:30", duration_min: 20, location: "BH A51"}
+  - {date: 2026-11-12, kind: exam, title: "180 Quiz 7 (end of class)", time: "13:30", duration_min: 20, location: "BH A51"}
+  - {date: 2026-11-19, kind: exam, title: "180 Quiz 8 (end of class)", time: "13:30", duration_min: 20, location: "BH A51"}
+  - {date: 2026-11-24, kind: exam, title: "180 Quiz 9 — TUESDAY (pre-Thanksgiving)", time: "13:30", duration_min: 20, location: "BH A51"}
+  - {date: 2026-12-03, kind: exam, title: "180 Quiz 10 (end of class)", time: "13:30", duration_min: 20, location: "BH A51"}
+
+  # ---- 15-151 homework (20% of grade, LaTeX +1pt; due ~Wed 11pm Gradescope) ----
+  - {date: 2026-09-02, kind: hw, title: "151 HW 1 due", time: "23:00", duration_min: 15, location: "Gradescope"}
   - {date: 2026-09-09, kind: hw, title: "151 HW 2 due"}
   - {date: 2026-09-16, kind: hw, title: "151 HW 3 due"}
   - {date: 2026-09-30, kind: hw, title: "151 HW 4 due"}

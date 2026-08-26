@@ -46,8 +46,8 @@ pushed rebuild propagates automatically (Google refreshes subscribed feeds every
 ## Domain rules (respect these when proposing schedule changes)
 
 - **Sleep is inviolable:** lights out 11:15 PM weekdays, wake 6:00. Never schedule past 11.
-- Gym: daily. Full 2 h M/W/F + weekends; Tue/Thu hard-capped at 6:30–7:40 (8 AM recitation).
-- Startup work ≈ 21 h/wk (weeknights 8–11, Tue 8:30–10:45, Sat 2–6, Sun 2–5). During crunch
+- Gym: daily. Full 2 h M/W/F + weekends; Tue/Thu hard-capped at 6:30–7:35 (8 AM recitation).
+- Startup work ≈ 18 h/wk (M/W/Th 9–11 PM, Fri 8–11 PM, Tue 8:40–10:45, Sat 2–6, Sun 2–5). During crunch
   weeks it drops to check-ins — do not fill freed time with new commitments.
 - Research ≈ 8 h/wk (Wed/Thu/Fri 2–3:50 + Sun 6–8). Monday 2–3:50 is the flex overflow.
 - 21-241: quiz every Tue in recitation; Friday HW due 5 PM is "optional" but treated as
@@ -64,6 +64,24 @@ pushed rebuild propagates automatically (Google refreshes subscribed feeds every
 - `evening: true` on a class block means it still meets on `no_daytime_dates` (Democracy Day).
 - Timezone is America/New_York everywhere; don't introduce others.
 - Keep tooltip notes ≤ ~2 sentences of the most decision-useful info (who/where/what counts).
+
+## Coursework document ingestion (the user uploads these regularly)
+
+The user drops syllabi, homework PDFs, lecture slides/transcripts, and week packets (usually
+into `~/Downloads`; zips contain markdown conversions). When they do:
+
+1. Read everything (fan out one subagent per class for big batches; unzip into the scratchpad).
+2. Extract every dated deliverable → `events.yaml` (kind hw/exam/adm, with due **times** when
+   stated). Weekly recurring cadences (e.g. "written HW due Mon 9pm") belong in the relevant
+   study-block titles/tooltips, not as 15 duplicate events — but DO add each concrete published
+   date.
+3. Update `tooltips.yaml` grading %, OH, policy rows when documents say something new.
+4. Reconcile: if a document contradicts an existing calendar entry (date, time, room, weight),
+   correct the entry and tell the user exactly what moved and why.
+5. Check new exam dates against `crunch_dates`; label study blocks per class to match real
+   due-date cadence; rebuild, verify, commit, push.
+
+Study hours target ≈ 32 h/wk (band 24–34, raised 2026-08-26 at the user's request).
 
 ## Things you should proactively do
 

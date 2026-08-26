@@ -32,7 +32,7 @@ protected:
 weekly_hours:
   startup:  {min: 18, max: 24}    # ~21 committed
   research: {min: 5,  max: 10}    # ~8 committed
-  study:    {min: 18, max: 30}
+  study:    {min: 24, max: 34}    # raised 2026-08-26 per user: coursework needs ~32 h/wk
   gym:      {min: 10, max: 15}
 
 # Advisory (enforced by CLAUDE.md judgment, not the build):

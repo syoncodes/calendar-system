@@ -12,8 +12,9 @@
     - [Room, "HOA 160 · MWF 9:00–9:50"]
     - [Walk, "CFA building, far south corner — 6 min from Cohon, ~15 from Mudge"]
     - [Format, "CS-flavored section — NumPy/Python applications"]
-    - [OH, "See Canvas (instructor + TAs)"]
-  note: "Grading: quizzes 15% · four exams 20% each · project 5%. In-class exams Fri Sep 25 & Fri Oct 30; Exams 3+4 in finals week. Fri HW (due 5 PM) is optional but the Tue quiz mirrors it — always do it."
+    - [OH, "Simone: Mon/Wed 1–2 + Thu 11–12, WEH 8123 · TA OH ~daily 12–4 (Canvas)"]
+    - [Text, "Course notes + Interactive Linear Algebra (Margalit/Rabinoff, free online)"]
+  note: "Grading: quizzes 15% · four exams 20% each · project 5%. Exams Sep 25 & Oct 30 in class; Exams 3+4 in finals week (80 min each + 20-min break). Fri HW (due 5 PM Gradescope) is optional but the Tue quiz mirrors it — always do it."
 
 "15-151 Lecture":
   sub: "Mathematical Foundations for CS"
@@ -23,8 +24,8 @@
     - [Offices, "Gates 5007 · Gates 4005"]
     - [OH, "Kuszmaul: Tue 4–5 · Mackey: Mon 9:45, Wed 2, Thu 10:45 (Zoom)"]
     - [Room, "GHC 4401 · MWF 1:00–1:50"]
-    - [Text, "Newstead, An Infinite Descent into Pure Mathematics"]
-  note: "Grading: two high midterms 20% each · low midterm 10% · HW 20% · final 30%. Late HW before solutions = half credit. LaTeX = +1 pt from HW2. Midterms in lecture: Sep 21 · Oct 26 · Nov 16."
+    - [Text, "Newstead, An Infinite Descent v0.7 — NOT the v1.0 preview"]
+  note: "Grading: two high midterms 20% each · low midterm 10% · HW 20% · final 30%. HW due ~Wed 11 PM Gradescope; late-before-solutions = half credit; LaTeX +1 pt from HW2; regrades within 1 week. Midterms in lecture: Sep 21 · Oct 26 · Nov 16."
 
 "15-151 Recitation":
   sub: "TA-led session"
@@ -37,17 +38,21 @@
   sub: "Principles of Imperative Computation"
   rows:
     - [Profs, "Iliano Cervesato · Anne Kohlbrenner"]
-    - [Email, "iliano@andrew.cmu.edu · akohlbre@andrew.cmu.edu"]
     - [Room, "GHC 4401 · Tue/Thu 9:30–10:50"]
-    - [Site, "cs.cmu.edu/~15122"]
-  note: "C0 → C, contracts, data structures. Every deadline published day one. Office hours on a programming due-date are concept-only. Start every assignment the day it releases."
+    - [Grading, "min(written+prog, checkins) + activities + final (25%) / 1000 pts"]
+    - [Written PR, "Due Thu 6 PM Gradescope — STRICT, zero late accepted"]
+    - [Programming, "Due Sun 9 PM Autolab — 3 late days/sem, max 1 per HW, auto-used"]
+    - [Q&A, "Ed only (no email) · regrades within 5 days · autograder try-limited"]
+    - [AI, "Banned on ALL graded work, including debugging"]
+  note: "C0 for ~9 weeks, then C with valgrind. Full deadline calendar published day one (cs.cmu.edu/~15122). Daily lecture activity forms reopen 12:30–8 PM same day — submit them, they're points."
 
-"15-122 Evening":
-  sub: "Tuesday evening session"
+"15-122 Checkin":
+  sub: "Weekly graded assessment — replaces midterms"
   rows:
-    - [Room, "GHC 4401 · Tue 7:00–8:20 PM"]
-    - [Staff, "Cervesato / Kohlbrenner + TAs"]
-  note: "Evening classes after 5 PM meet even on Democracy Day (Nov 3). Startup shifts to 8:40 after this — GHC → Mudge is a ~12-min walk."
+    - [What, "35 min, closed book, 60 pts · your slot is 7:00 OR 7:45 (assigned on Ed)"]
+    - [Covers, "Lectures from two weeks prior — PR feedback (back Fri) is the study guide"]
+    - [Room, "Assigned per Ed · first ones GHC 4401"]
+  note: "13 checkins ARE the midterms — treat every Tuesday like a small exam. Meets even on Democracy Day; Thanksgiving week uses an alternate slot. Startup shifts to 8:40 after — ~12-min walk home."
 
 "15-122 Recitation":
   sub: "Friday recitation"
@@ -63,7 +68,7 @@
     - [Email, "dennisx@andrew.cmu.edu"]
     - [Room, "BH 237A · Tue/Thu 4:00–4:50"]
     - [Bring, "Laptop — Python/NumPy used live"]
-  note: "Quiz every Tuesday from week 2, modeled on the previous Friday's HW (solutions post Monday evening). Three lowest dropped; no makeups — the drops ARE your sick days. Quizzes = 15% of grade."
+  note: "Quiz every Tuesday starting Sep 1 (none week 1), modeled on the previous Friday's HW (solutions post Monday evening). Three lowest dropped; no makeups — the drops ARE your sick days. Quizzes = 15% of grade."
 
 "21-241 Recitation":
   sub: "Thursday recitation"
@@ -75,20 +80,26 @@
   note: "Work through problems from lecture with Python as the computational tool. No quiz Thursdays."
 
 "80-180 Linguistics":
-  sub: "Nature of Language"
+  sub: "Introduction to Linguistics"
   rows:
-    - [Prof, "Mandy Simons"]
-    - [Email, "simons@andrew.cmu.edu"]
+    - [Prof, "Mandy Simons (mandysimons@cmu.edu) · BH 145H · email, not Canvas msgs"]
     - [Room, "BH A51 · Tue/Thu 12:30–1:50"]
-  note: "Your breather course. Do its reading in the Mon/Wed evening study slot so it never competes with 122/151."
+    - [Grading, "Quizzes 50%(!) · two midterms 15% each · final 20%"]
+    - [Quizzes, "Most Thursdays, last 15–20 min of class — the only regular graded work"]
+    - [Attendance, "Required — in-class paper exercises photographed to Canvas"]
+    - [OH, "Simons Wed 10–11 AM BH 145H (also quiz make-ups) · graders Wed 5–6 PM BH 145C"]
+    - [Rules, "No laptops (tablet+stylus OK) · no generative AI · Piazza for questions"]
+  note: "Not a breather: quizzes are HALF the grade and can't be skipped (make-ups only Wed 10–11 AM within a week, excusable reasons, max 2/semester). Weekly ungraded Canvas practice sets are the quiz prep."
 
 "FYS 07-128":
   sub: "First-Year Seminar (SCS)"
   rows:
     - [Profs, "Thomas Cortina · Veronica Peet"]
-    - [Email, "tcortina@andrew.cmu.edu · vpeet@andrew.cmu.edu"]
     - [Room, "GHC 4401 · Mon/Wed 4:00–4:50"]
-  note: "Low workload, high leverage: Cortina's warm intros to professors are your fastest path into a lab."
+    - [Grading, "100 pts, A at 85+: quiz sheets 60 · calendar HW 5 · 2 assignments 10 · advising · final"]
+    - [Attendance, "3-pt quiz sheet each class = attendance · NO excused absences · late after 4:10 = no sheet"]
+    - [Devices, "Laptops/tablets/phones banned — handwritten notes only (usable on quizzes + final)"]
+  note: "Attendance-driven: show up, hand-write notes, fill the sheet (need ~20 good ones of 26). Cortina's warm intros to professors remain your fastest path into a lab. Google Calendar HW is open on Canvas — due date TBA."
 
 "Gym — full":
   sub: "2-hour session"
@@ -165,10 +176,31 @@
   note: "Weeknights are for momentum, weekends are for shipping."
 
 "Evening study":
-  sub: "Lighter second-gear block"
+  sub: "Friday hour — close the week"
   rows:
-    - [Use for, "122 written HW · 151 HW · 80-180 reading"]
-  note: "Lower-intensity work after dinner."
+    - [Use for, "Loose ends · 180 practice set · next week's reading"]
+  note: "One focused hour, then the buffer. Nothing new — just close open loops."
+
+"Evening study — 122 PR + 151":
+  sub: "Monday night · 2h 50m"
+  rows:
+    - [122 PR, "Written problems due Thu 6 PM — STRICT, no late; draft tonight"]
+    - [151 HW, "Due Wed 11 PM — polish the Sunday LaTeX draft"]
+    - [Also, "180 quiz prep (most Thursdays, 50% of that grade)"]
+  note: "The three mid-week deadlines (Wed 11 PM, Thu 6 PM, Thu quiz) are all won or lost tonight."
+
+"Evening study — 122 PG start":
+  sub: "Thursday night · 2h 50m"
+  rows:
+    - [122 PG, "Programming HW due Sun 9 PM — START tonight, never Saturday"]
+    - [Also, "241 HW final pass (submit tomorrow 5 PM)"]
+  note: "PG assignments are 50+ pts and autograder-limited — an early start is the whole strategy."
+
+"Study — get ahead":
+  sub: "Saturday evening · 2h"
+  rows:
+    - [Use for, "Next week's 122 PG · 151 reading · checkin review"]
+  note: "This block is why exam weeks don't hurt. Free time follows at 9."
 
 "Evening study — 151 HW":
   sub: "151 homework night"
@@ -177,20 +209,20 @@
     - [Bonus, "+1 pt for LaTeX"]
   note: "Drafted Sunday in LaTeX, polished and submitted here. HW is 20% of the 151 grade."
 
-"Big study — 151 HW in LaTeX":
+"Big study — 122 PG + 151 LaTeX":
   sub: "Sunday anchor block · 2h 45m"
   rows:
-    - [Draft, "151 HW in LaTeX (+1 pt bonus)"]
-    - [Start, "Next 122 programming assignment early"]
-  note: "Front-loading Sunday is what makes the weekday system hold."
+    - [122 PG, "Due TONIGHT 9 PM — main push here while fresh"]
+    - [151, "Draft this week's HW in LaTeX (+1 pt bonus)"]
+  note: "Front-loading Sunday is what makes the weekday system hold. PG submission has a tries-limited autograder — leave slack."
 
-"Finish HW + plan week":
-  sub: "Weekly reset"
+"Finish 122 PG + plan week":
+  sub: "Weekly reset · PG due 9 PM inside this block"
   rows:
-    - [Close, "Anything due Mon/Tue"]
-    - [Plan, "Check the 15-122 coursework calendar"]
+    - [Submit, "122 PG on Autolab BY 9:00 PM — hard deadline, late days are precious"]
+    - [Plan, "Check the week's deadlines: Wed 151 · Thu PR + quiz · Fri 241"]
     - [Then, "Lights out 10:45 — Monday is a 6:00 wake"]
-  note: "Ten minutes of planning here saves hours of chaos midweek."
+  note: "Submit PG first, plan after. Ten minutes of planning here saves hours of chaos midweek."
 
 "Dinner + family call":
   sub: "Protected personal time"
