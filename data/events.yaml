@@ -29,7 +29,7 @@ events:
 
   # ---- week-1 one-offs & optional sessions ----
   - {date: 2026-08-28, kind: mile, title: "Michael Lisanti — CyLab (w/ Rithul)", time: "14:15", duration_min: 45, location: "RMCIC 2106, CyLab — 4720 Forbes"}
-  - {date: 2026-08-29, kind: mile, title: "122 proofs bootcamp", time: "11:00", duration_min: 60, location: "Room on Ed"}
+  - {date: 2026-08-29, kind: mile, title: "122 proofs bootcamp (+ bagels)", time: "15:00", duration_min: 120, location: "POS 152 — sections E–H"}
   - {date: 2026-08-29, kind: mile, title: "151 LaTeX + Gradescope session", time: "12:00", duration_min: 120, location: "DH 2210"}
   - {date: 2026-08-30, kind: mile, title: "151 proof-writing session", time: "14:00", duration_min: 120, location: "DH 2210"}
   - {date: 2026-08-31, kind: adm, title: "Tuition must post today (late fees after)"}
