@@ -55,10 +55,11 @@
   note: "13 checkins ARE the midterms — treat every Tuesday like a small exam. Meets even on Democracy Day; Thanksgiving week uses an alternate slot. Startup shifts to 8:40 after — ~12-min walk home."
 
 "15-122 Recitation":
-  sub: "Friday recitation"
+  sub: "Friday recitation — Section H"
   rows:
     - [Room, "WEH 5304 · Fri 4:00–4:50"]
-    - [Staff, "TA-led"]
+    - [Section, "H — E–H room groupings for bootcamps/checkins"]
+    - [Staff, "TA-led · graded 0–2 each week"]
   note: "Applies the week's lecture material — the best prep for written homework."
 
 "21-241 Rec + QUIZ":
