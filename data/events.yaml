@@ -33,6 +33,7 @@ events:
   - {date: 2026-08-29, kind: mile, title: "151 LaTeX + Gradescope session", time: "12:00", duration_min: 120, location: "DH 2210"}
   - {date: 2026-08-30, kind: mile, title: "151 proof-writing session", time: "14:00", duration_min: 120, location: "DH 2210"}
   - {date: 2026-08-31, kind: adm, title: "Tuition must post today (late fees after)"}
+  - {date: 2026-08-31, kind: mile, title: "Project Olympus walkthrough — Matt Katsaros (w/ Rithul)", time: "11:30", duration_min: 15, location: "Project Olympus, 4620 Henry St"}
 
   # ---- 21-241 (HW due Fri 5pm Gradescope weekly — optional but quiz mirrors it; quizzes Tue in rec from Sep 1) ----
   - {date: 2026-08-28, kind: hw, title: "241 HW1 due", time: "17:00", duration_min: 15, location: "Gradescope"}
