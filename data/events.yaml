@@ -35,6 +35,7 @@ events:
   - {date: 2026-08-31, kind: adm, title: "Tuition must post today (late fees after)"}
   - {date: 2026-08-31, kind: mile, title: "Project Olympus walkthrough — Matt Katsaros (w/ Rithul)", time: "11:30", duration_min: 15, location: "Project Olympus, 4620 Henry St"}
   - {date: 2026-09-10, kind: mile, title: "Rho — Dylan Chang (Zoom)", time: "17:00", duration_min: 30, location: "Zoom (link in Google invite)"}
+  - {date: 2026-09-10, kind: mile, title: "SEP coffee chat — Ria Sanghvi", time: "21:00", duration_min: 30, location: "See gcal invite"}
   - {date: 2026-09-11, kind: mile, title: "Alchemy Cyber discovery call (Zoom)", time: "14:30", duration_min: 30, location: "Zoom (link in Google invite)"}
   - {date: 2026-09-12, kind: mile, title: "SEP Founder's Education — Session 2", time: "14:00", duration_min: 120, location: "Tepper School, 4765 Forbes"}
   - {date: 2026-09-15, kind: mile, title: "CMU Founder Dinner (Rho)", time: "19:00", duration_min: 120, location: "Union Grill, 413 S Craig St"}
