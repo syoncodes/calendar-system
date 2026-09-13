@@ -72,9 +72,11 @@ into `~/Downloads`; zips contain markdown conversions). When they do:
 
 1. Read everything (fan out one subagent per class for big batches; unzip into the scratchpad).
 2. Extract every dated deliverable → `events.yaml` (kind hw/exam/adm, with due **times** when
-   stated). Weekly recurring cadences (e.g. "written HW due Mon 9pm") belong in the relevant
-   study-block titles/tooltips, not as 15 duplicate events — but DO add each concrete published
-   date.
+   stated). GRADED weekly items (quizzes, HW, checkins) get enumerated as dated events for
+   every occurrence through end of classes, even when only the cadence is published — skip
+   dates the class doesn't meet (no_class/no_daytime), and leave titles unnumbered when the
+   course's own numbering across skipped weeks is unverified (user preference, 2026-09-13).
+   Ungraded/soft cadences stay in study-block titles/tooltips only.
 3. Update `tooltips.yaml` grading %, OH, policy rows when documents say something new.
 4. Reconcile: if a document contradicts an existing calendar entry (date, time, room, weight),
    correct the entry and tell the user exactly what moved and why.
