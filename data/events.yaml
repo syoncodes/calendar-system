@@ -40,6 +40,8 @@ events:
   - {date: 2026-09-12, kind: mile, title: "SEP Founder's Education — Session 2", time: "14:00", duration_min: 120, location: "Tepper School, 4765 Forbes"}
   - {date: 2026-09-15, kind: mile, title: "CMU Founder Dinner (Rho)", time: "19:00", duration_min: 120, location: "Union Grill, 413 S Craig St"}
   - {date: 2026-09-16, kind: mile, title: "Cyber Innovators Connect — CyLab (Startup Week)", time: "09:00", duration_min: 300, location: "Swartz Center, Tepper Quad"}
+  - {date: 2026-09-17, kind: mile, title: "Phillip Yu — EPP (w/ Rithul)", time: "14:00", duration_min: 30, location: "Wean 4128 (his office — confirm)"}
+  - {date: 2026-09-18, kind: mile, title: "INI meeting — Fabiola Fiuza (w/ Rithul)", time: "11:00", duration_min: 45, location: "Zoom (link in email)"}
 
   # ---- 21-241 (HW due Fri 5pm Gradescope weekly — optional but quiz mirrors it; quizzes Tue in rec from Sep 1) ----
   # weekly items enumerated per user preference; unnumbered past HW1/Quiz 1 since the course's own numbering
