@@ -43,6 +43,7 @@ events:
   - {date: 2026-09-16, kind: mile, title: "SEP interview — Ayaan Shaikh", time: "21:00", duration_min: 30, location: "Tepper 3804 (room may change — watch email)"}
   - {date: 2026-09-17, kind: mile, title: "Phillip Yu — EPP (w/ Rithul)", time: "14:00", duration_min: 30, location: "Wean 4128 (his office — confirm)"}
   - {date: 2026-09-18, kind: mile, title: "INI meeting — Fabiola Fiuza (w/ Rithul)", time: "11:00", duration_min: 45, location: "Zoom (link in email)"}
+  - {date: 2026-09-25, kind: mile, title: "Portfolio Ops Founder Chat — Keshav Vyas (w/ Rithul)", time: "15:00", duration_min: 30, location: "Swartz Center, Floor 3"}
 
   # ---- 21-241 (HW due Fri 5pm Gradescope weekly — optional but quiz mirrors it; quizzes Tue in rec from Sep 1) ----
   # weekly items enumerated per user preference; unnumbered past HW1/Quiz 1 since the course's own numbering
