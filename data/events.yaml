@@ -40,6 +40,7 @@ events:
   - {date: 2026-09-12, kind: mile, title: "SEP Founder's Education — Session 2", time: "14:00", duration_min: 120, location: "Tepper School, 4765 Forbes"}
   - {date: 2026-09-15, kind: mile, title: "CMU Founder Dinner (Rho)", time: "19:00", duration_min: 120, location: "Union Grill, 413 S Craig St"}
   - {date: 2026-09-16, kind: mile, title: "Cyber Innovators Connect — CyLab (Startup Week)", time: "09:00", duration_min: 300, location: "Swartz Center, Tepper Quad"}
+  - {date: 2026-09-16, kind: mile, title: "SEP Trivia Night", time: "18:30", duration_min: 120, location: "Swartz Center"}
   - {date: 2026-09-16, kind: mile, title: "SEP interview — Ayaan Shaikh", time: "21:00", duration_min: 30, location: "Tepper 3804 (room may change — watch email)"}
   - {date: 2026-09-17, kind: mile, title: "Phillip Yu — EPP (w/ Rithul)", time: "14:00", duration_min: 30, location: "Wean 4128 (his office — confirm)"}
   - {date: 2026-09-18, kind: mile, title: "Hana Habib (w/ Rithul)", time: "11:00", duration_min: 30, location: "TCS Hall 442"}
